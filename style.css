@@ -431,7 +431,7 @@ body{
     align-self: center;
     p{
       text-align: center;
-        font-size:1.8em;;
+        font-size:1.6em;;
         font-family: cursive;
 
     }
@@ -639,13 +639,22 @@ li{
         display:flex;
         transition: 0.2s all ease-in-out;
         gap:0.3rem;
+        transition: 0.2s all ease-out;
+
+        .icons.github {
+            transition: 0.2s all ease-out;
+        }
+
+        .icons.github:hover{
+            transform: rotate(360deg);
+        }
     }
 
     .footer-link:hover{
         transform: scale(1.3);
         
     }
-}
+}s
 
 
 
@@ -672,10 +681,6 @@ input:user-invalid, input[type="radio"]:user-invalid{
 }
 
 
-.icons.github {
-  transition: 0.2s all ease-out;
-}
-
-.icons.github:hover{
-  transform: rotate(360deg);
+.closeDialog-btn{
+  align-self: flex-end;
 }
