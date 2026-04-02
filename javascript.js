@@ -9,13 +9,13 @@ function Book(name, author, pages, already_read){
     this.author = author;
     this.pages = pages;
     this.already_read = already_read;
-    toggleRead = function(){
-        if(already_read== "true"){
-            this.already_read = "false"
-        }else if(already_read== "false"){
-            this.already_read = "true"
+    this.toggleRead = function(){
+        if(this.already_read == "Finished"){
+            this.already_read = "Not Finished"
+        }else if(this.already_read == "Not Finished"){
+            this.already_read = "Finished"
         }
-    }
+    };
 }
 
 
@@ -39,9 +39,9 @@ bookAddForm.addEventListener("submit", function(e) {
         document.querySelector('input[name="finish-book"]:checked')?.value
 
     );
-    createDomArticle(book);
+    myLibrary.push(book);
+    displayBooks()
     e.target.reset();
-    displayBooks();
     formDialog.close();
 
    
@@ -62,28 +62,35 @@ function createDomArticle(book) {
     const deleteBookBtn = document.createElement("button");
     const bookPagesP = document.createElement("p");
     const bookState = document.createElement("p");
-    const svgImg = document.createElement('img');
-
+    const svgDelteImg = document.createElement('img');
+   
     h3.textContent = name;
     bookAuthorP.textContent = `Author: ${author}`;
     bookPagesP.textContent = `Page: ${pages}`;
-    bookState.textContent = `Status: ${already_read === "true" ? "Finished" : " Not Finished"}`;
+    bookState.textContent = `Status: ${already_read}`;
     bookState.classList.add("bookStateP");
-    svgImg.src = 'icons/delete.svg';
-    svgImg.classList.add("icons", "deleteicon");
+    svgDelteImg.src = 'icons/delete.svg';
+    svgDelteImg.classList.add("icons", "deleteicon");
+    const svgReadImg = document.createElement('img');
+    svgReadImg.src = 'icons/eye.svg';
+    svgReadImg.classList.add("icons", "readIcons")
     deleteBookBtn.classList.add("book-delete-btn");
-    deleteBookBtn.appendChild(svgImg);
-    deleteBookBtn.addEventListener('click', (e) =>{
+    deleteBookBtn.append(svgReadImg, svgDelteImg);
+    svgDelteImg.addEventListener('click', (e) =>{
        deleteBook(e)
     } )
-
+    svgReadImg.addEventListener('click', (e) =>{
+        toggleReadStage(e);
+    } )
     article.setAttribute('data-id', book.id)
     div.classList.add("bookInfoContainer");
     div.append(bookAuthorP, bookPagesP, bookState);
     article.classList.add("card");
     article.append(h3, div, deleteBookBtn);
-    myLibrary.push(article)
-    console.log(myLibrary)
+
+    
+    return article;
+    
 }
 
 
@@ -93,21 +100,30 @@ function displayBooks() {
   mainContent.innerHTML = '' 
   
   myLibrary.forEach((book) => {
-    mainContent.appendChild(book)
+    mainContent.appendChild(createDomArticle(book));
   })
-
-  console.log(mainContent)
 
 }
 
 
 function deleteBook(e){
     const deleteArticle = e.target.closest('.card');
-    console.log(deleteArticle.dataset.id)
     for(let i = 0 ;i < myLibrary.length ;i++){
-        if (deleteArticle.id == myLibrary[i].id){
+        if (deleteArticle.dataset.id == myLibrary[i].id){
             myLibrary.splice(i,1);
         }
     }
     displayBooks()
+}
+
+function toggleReadStage(e){
+
+    const readArticle = e.target.closest('.card');
+    console.log(readArticle.dataset.id)
+    for(let i = 0 ;i < myLibrary.length ;i++){
+        if (readArticle.dataset.id == myLibrary[i].id){
+            myLibrary[i].toggleRead();
+             }
+    }
+    displayBooks();
 }

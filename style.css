@@ -551,6 +551,8 @@ li{
         color: #000000;
     }
     .book-delete-btn{
+      display:flex;
+      gap:1rem;
         width:fit-content;
         align-self: flex-end;
 
