@@ -469,7 +469,7 @@ body{
         font-size:small;
         width: 1rem;
         justify-self: flex-end;
-        align-self: flex-end;
+        margin-left: auto;
         border-color: aliceblue;
     }
  
