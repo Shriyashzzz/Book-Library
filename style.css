@@ -577,7 +577,6 @@ li{
     background-image: url("icons/bookbg.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transition: 0.4s all ease-in-out;
     
     h3{
         font-size: 2rem;
@@ -604,10 +603,6 @@ li{
 
   
 
-}
-
-.card:hover{
-  transform: scale(1.1);
 }
 
 .book-delete-btn{
