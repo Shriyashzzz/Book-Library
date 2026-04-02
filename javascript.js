@@ -11,10 +11,16 @@ function Book(name, author, pages, already_read){
 
 
 
-let bookAddForm = document.getElementById(".addBookForm");
+const bookAddForm = document.querySelector(".addBookForm");
 const mainContent = document.querySelector(".mainContent");
+const addBookSubmitbtn = document.querySelector(".submit-form-btn")
+const closeFormButton = document.querySelector(".closeDialog-btn")
 
-addBookSubmitbtn.addEventListener("click", function(e) {
+closeFormButton.addEventListener("click" ,() => {
+    bookAddForm.reset()
+})
+
+bookAddForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const book = new Book(
         document.querySelector("#book-name").value,
@@ -24,7 +30,8 @@ addBookSubmitbtn.addEventListener("click", function(e) {
 
     );
     addBookToLibrary(book);
-    e.target.parentElement.reset();
+    e.target.reset();
+
    
 });
 
@@ -50,7 +57,7 @@ function insertBookInDom(book) {
 
     h3.textContent = name;
     bookAuthorP.textContent = `Author: ${author}`;
-    bookPagesP.textContent = `Pages: ${pages}`;
+    bookPagesP.textContent = `Page: ${pages}`;
     bookState.textContent = `Status: ${already_read === "true" ? "Finished" : " Not Finished"}`;
     bookState.classList.add("bookStateP");
     svgImg.src = 'icons/delete.svg';
@@ -64,5 +71,4 @@ function insertBookInDom(book) {
     article.classList.add("card");
     article.append(h3, div, deleteBookBtn);
     mainContent.appendChild(article);
-
 }
