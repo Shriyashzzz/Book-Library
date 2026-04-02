@@ -372,10 +372,9 @@ body{
 
 .add-BookContainer{
     grid-area: 2 / 1 / 2/ -1;
-    display:block;
     justify-items: center;
     color:rgb(99, 98, 96);
-    align-self: center;
+    align-self: centers
 }
 
 .header{
@@ -427,8 +426,12 @@ body{
     justify-content: center;
     gap:1rem;
     align-items: center;
+    flex-wrap: wrap;
+    margin:2px;
+    align-self: center;
     p{
-        font-size: larger;
+      text-align: center;
+        font-size:1.8em;;
         font-family: cursive;
 
     }
@@ -493,6 +496,7 @@ body{
     scale:(0.45);
   }
 }
+
 
    
 .addBookForm{
