@@ -672,4 +672,10 @@ input:user-invalid, input[type="radio"]:user-invalid{
 }
 
 
-.
+.icons.github {
+  transition: 0.2s all ease-out;
+}
+
+.icons.github:hover{
+  transform: rotate(360deg);
+}
