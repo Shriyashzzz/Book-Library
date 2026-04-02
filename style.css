@@ -543,7 +543,10 @@ li{
     border-radius: 2rem;
     border-left: .5rem solid #77b684;
     margin:1rem;
-    width: max(250px, 15%);
+    width: max(340px, 15%);
+    background-image: url("icons/bookbg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     
     h3{
         font-size: 2rem;
@@ -555,6 +558,8 @@ li{
       gap:1rem;
         width:fit-content;
         align-self: flex-end;
+        margin:0 2rem 2rem 0;
+
 
     }
    
@@ -627,3 +632,11 @@ input:user-invalid, input[type="radio"]:user-invalid{
     border-color: rgb(221, 31, 31);
 }
 
+
+
+.bookInfoContainer{
+  margin-left: 2rem;
+}
+
+
+.
