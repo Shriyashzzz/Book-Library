@@ -11,7 +11,7 @@
 <body>
     <div class = "main-wrapper">
         <header class ="header">
-              <section class = "page-brand"><img class ="icons" src="icons/library.svg" alt="Page Logo" >Fake Library</section>
+              <section class = "page-brand"><img class ="icons" src="icons/library.svg" alt="Page Logo" > Your Library</section>
             <nav>
                 <ul>
                     <a href=""><li>Home</li></a>
@@ -20,16 +20,49 @@
             </nav>
         </header>
 
-        <main class ="main">
-            <div class = "addBookContainer">
+        <section class ="add-BookContainer">
+            <div class = "dialogButtonContainer">
                 <p>
                   Have you read a new  book recently?
                 </p>
-                <button type="button" class = "addBook-btn">
+                <button type="button" command = "show-modal" commandfor = "addBookDialog" class = "addBook-btn">
                     Add a book
                 </button>
             </div>
+            <dialog id  = "addBookDialog">
+                <button commandfor= "addBookDialog" command="close" class = "closeDialog-btn">X</button>
+                <form action="" method="post" class = "addBookForm" >                      
+                    <legend>New Book Details</legend>
+                    <label for="book-name">Book Name:</label>
+                    <input type="text", id = "book-name", name = "book-name" required>
+                    <label for="book-author">Book Author:</label>
+                    <input type ="text", id = "book-author", name = "book-name" >
+                    <label for ="book-pages">How many pages in the book?</label>
+                    <input type="number", id = "book-pages", name = "book-pages">
+
+                    <fieldset class ="book-status-radio">
+                        <legend>Finished Reading</legend>
+                        <label for="yes-finishread-status">Yes</label>
+                        <input type="radio" name="finish-book" id="yes-finishread-status" value="true" required>
+                        <label for="no-finishread-status"> No</label>
+                        <input type="radio", name = "finish-book". id = "no-finishread-status", value ="false">
+                    </fieldset>
+                    <button type = "submit" class ="submit-form-btn"> Submit</button>
+                </form>
+            </dialog>
+        </section>
+        <main class = "main">
+            <h2 class = "main-label">Your Books</h2>
+            <article class ="mainContent">
+
+            </article>
+
         </main>
+
+
+
+
+
     </div>
     
 </body>
