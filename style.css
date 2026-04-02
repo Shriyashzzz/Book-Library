@@ -354,7 +354,7 @@ a{
 }
 
 body{
-    height:100dvh;
+    height:100svh;
     background-color: rgb(222, 222, 222, 0.2);
     
 }
@@ -363,6 +363,7 @@ body{
     display:grid;
     grid-template: 1fr 1fr 4fr 1fr / 1fr 4fr 1fr;
     height: 100%;
+
 }
 .header{
     grid-column: 1 / -1;
@@ -405,7 +406,7 @@ body{
 }
 
 .icons:hover{
-    transform: scale(1.2) ;
+    transform: scale(1.4) ;
 }
 
 .page-brand{
@@ -453,7 +454,7 @@ body{
 #addBookDialog{
     width:500px;
     height: fit-content;
-    border:none;s
+    border:none;
     .closeDialog-btn{
         border-radius: 100px;
         font-size:small;
@@ -495,13 +496,23 @@ body{
     grid-column: 1 / span 3 ;
     .main-label{
     text-align: center;
-    color: rgb(111, 116, 116);
+    color: rgb(111, 116, 116);  
+      
+    }
+
+    .main-label{
+        font-size: 2.2rem;
+        font-weight: bolder;
+        color:#523f2b
     }
 
     .mainContent{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap:1rem;
+        justify-content: start;
+        display: grid;
+        background-color: rgb(233, 206, 206, 0.2);
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap:1rem;
+
     }
 }
 
@@ -516,22 +527,20 @@ li{
 
 .card{
     background-color: var(--smoothBrown);
-    border: 1px solid black;
-    width: auto;
-    height: auto;
     display:flex;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-family: monospace;
     flex-direction: column;
     gap:1rem;
     justify-content: flex-start;
     padding:1rem;
     border-radius: 2rem;
-    border:none;
-    border-right: 5px solid #C0C5C1;
+    border-left: .5rem solid #77b684;
     margin:1rem;
+    width: max(250px, 15%);
+    
     h3{
-        font-size: 1.4rem;
+        font-size: 2rem;
         align-self: center;
         color: #000000;
     }
@@ -544,6 +553,7 @@ li{
     .bookStateP{
         background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff, #ff0000);
         background-clip: text;
+        font-size: large;
         color: transparent;
         opacity: 1;
         transition:  2s ease-in-out all;
@@ -553,4 +563,14 @@ li{
 
 }
 
+.book-delete-btn{
 
+    border:none;
+    background-color: transparent;
+    .deleteicon{
+        width:2rem;
+        filter: invert(33%) sepia(72%) saturate(3929%) hue-rotate(331deg) brightness(92%) contrast(95%);
+    
+}
+
+}
