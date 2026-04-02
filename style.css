@@ -463,11 +463,13 @@ body{
     width:500px;
     height: fit-content;
     border:2px dotted brown;
+
     .closeDialog-btn{
         border-radius: 100px;
         font-size:small;
         width: 1rem;
         justify-self: flex-end;
+        align-self: flex-end;
         border-color: aliceblue;
     }
  
