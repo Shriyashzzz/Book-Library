@@ -459,7 +459,7 @@ body{
 #addBookDialog{
     width:500px;
     height: fit-content;
-    border:none;
+    border:2px dotted brown;
     .closeDialog-btn{
         border-radius: 100px;
         font-size:small;
@@ -475,6 +475,7 @@ body{
     display: flex;
     flex-direction: column;
     font-size: large;
+   
     gap:5px;
     font-family: monospace;
     legend{

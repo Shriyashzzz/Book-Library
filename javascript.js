@@ -1,4 +1,6 @@
 const myLibrary =[]
+displayBooks()
+
 
 function Book(name, author, pages, already_read){
     if (!new.target) throw Error('Make sure to use new keyword to instansiate an object!')
@@ -7,17 +9,25 @@ function Book(name, author, pages, already_read){
     this.author = author;
     this.pages = pages;
     this.already_read = already_read;
+    toggleRead = function(){
+        if(already_read== "true"){
+            this.already_read = "false"
+        }else if(already_read== "false"){
+            this.already_read = "true"
+        }
+    }
 }
 
 
 
+
+const formDialog = document.querySelector("#addBookDialog");
 const bookAddForm = document.querySelector(".addBookForm");
-const mainContent = document.querySelector(".mainContent");
 const addBookSubmitbtn = document.querySelector(".submit-form-btn")
 const closeFormButton = document.querySelector(".closeDialog-btn")
 
 closeFormButton.addEventListener("click" ,() => {
-    bookAddForm.reset()
+    bookAddForm.reset();
 })
 
 bookAddForm.addEventListener("submit", function(e) {
@@ -29,23 +39,22 @@ bookAddForm.addEventListener("submit", function(e) {
         document.querySelector('input[name="finish-book"]:checked')?.value
 
     );
-    addBookToLibrary(book);
+    createDomArticle(book);
     e.target.reset();
+    displayBooks();
+    formDialog.close();
 
    
 });
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
-    insertBookInDom(book);
-}
 
 
 
 
-function insertBookInDom(book) { 
+
+function createDomArticle(book) { 
+    
     const { name, author, pages, already_read } = book;  
-
     const article = document.createElement("article");
     const h3 = document.createElement('h3');
     const div = document.createElement("div");
@@ -64,11 +73,41 @@ function insertBookInDom(book) {
     svgImg.classList.add("icons", "deleteicon");
     deleteBookBtn.classList.add("book-delete-btn");
     deleteBookBtn.appendChild(svgImg);
-    deleteBookBtn.addEventListener('click', () => article.remove());
+    deleteBookBtn.addEventListener('click', (e) =>{
+       deleteBook(e)
+    } )
 
+    article.setAttribute('data-id', book.id)
     div.classList.add("bookInfoContainer");
     div.append(bookAuthorP, bookPagesP, bookState);
     article.classList.add("card");
     article.append(h3, div, deleteBookBtn);
-    mainContent.appendChild(article);
+    myLibrary.push(article)
+    console.log(myLibrary)
+}
+
+
+
+function displayBooks() {
+  const mainContent = document.querySelector(".mainContent");
+  mainContent.innerHTML = '' 
+  
+  myLibrary.forEach((book) => {
+    mainContent.appendChild(book)
+  })
+
+  console.log(mainContent)
+
+}
+
+
+function deleteBook(e){
+    const deleteArticle = e.target.closest('.card');
+    console.log(deleteArticle.dataset.id)
+    for(let i = 0 ;i < myLibrary.length ;i++){
+        if (deleteArticle.id == myLibrary[i].id){
+            myLibrary.splice(i,1);
+        }
+    }
+    displayBooks()
 }
