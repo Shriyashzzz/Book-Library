@@ -2,24 +2,44 @@ const myLibrary =[]
 displayBooks()
 
 
-function Book(name, author, pages, already_read){
-    if (!new.target) throw Error('Make sure to use new keyword to instansiate an object!')
-    this.id = crypto.randomUUID();
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.already_read = already_read;
-    this.toggleRead = function(){
+
+
+
+// function Book(name, author, pages, already_read){
+//     if (!new.target) throw Error('Make sure to use new keyword to instansiate an object!')
+//     this.id = crypto.randomUUID();
+//     this.name = name;
+//     this.author = author;
+//     this.pages = pages;
+//     this.already_read = already_read;
+//     this.toggleRead = function(){
+//         if(this.already_read == "Finished"){
+//             this.already_read = "Not Finished"
+//         }else if(this.already_read == "Not Finished"){
+//             this.already_read = "Finished"
+//         }
+//     };
+// }
+
+
+
+class Book{
+    constructor(name, author, pages, already_read){
+        this.id = crypto.randomUUID();
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.already_read = already_read;
+    }
+
+    toggleRead(){
         if(this.already_read == "Finished"){
             this.already_read = "Not Finished"
         }else if(this.already_read == "Not Finished"){
-            this.already_read = "Finished"
-        }
-    };
+             this.already_read = "Finished"
+         }
+    }
 }
-
-
-
 
 const formDialog = document.querySelector("#addBookDialog");
 const bookAddForm = document.querySelector(".addBookForm");
