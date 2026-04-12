@@ -1,4 +1,3 @@
-import { js } from "./javascript.js"
-
+import { js } from "./javascript.js";
 
 js();
