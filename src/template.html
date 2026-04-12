@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fake Library</title>
 
-    <script src = "javascript.js" defer></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class = "main-wrapper">
@@ -29,14 +27,17 @@
                     Add New Book
                 </button>
             </div>
-            <dialog id  = "addBookDialog">
+            <dialog id  = "addBookDialog" open>
                 <button commandfor= "addBookDialog" command="close" class = "closeDialog-btn">X</button>
                 <form action="" method="post" class = "addBookForm" >                      
                     <legend>New Book Details</legend>
                     <label for="book-name">Book Name:</label>
-                    <input type="text", id = "book-name", name = "book-name" required>
+                    <input type="text", id = "book-name", name = "Book Name" required minlength =3>
+                    <p class ="showError"></p>
                     <label for="book-author">Book Author:</label>
-                    <input type ="text", id = "book-author", name = "book-name" >
+                    <input type ="text", id = "book-author", name = "Book Author:" required minlength = 3 >
+                    <p class ="showError"></p>
+
                     <label for ="book-pages">How many pages in the book?</label>
                     <input type="number", id = "book-pages", name = "book-pages">
 
@@ -47,6 +48,7 @@
                         <label for="no-finishread-status"> No</label>
                         <input type="radio", name = "finish-book". id = "no-finishread-status", value ="Not Finished">
                     </fieldset>
+
                     <button type = "submit" class ="submit-form-btn"> Submit</button>
                 </form>
             </dialog>

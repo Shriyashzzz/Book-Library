@@ -681,3 +681,12 @@ input:user-invalid, input[type="radio"]:user-invalid{
 .closeDialog-btn{
   align-self: flex-end;
 }
+
+
+#book-author:invalid, #book-name:invalid {
+color:red
+}
+
+input:invalid:focus{
+  border-color: blue;
+}
