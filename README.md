@@ -20,7 +20,7 @@ To Install
 Clone this repo:
 
 ```bash
-    git@github.com:Shriyashzzz/Book-Library.git
+   git clone git@github.com:Shriyashzzz/Book-Library.git
 
 ```
 
